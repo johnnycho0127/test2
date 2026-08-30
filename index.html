@@ -1,318 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library Media Community (LMC) - Preview</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Library Media Hub — connecting research, teaching, professional practice, and community." />
+  <title>Library Media Hub | Johnny Cho</title>
   <style>
-    :root {
-      --navy: #0A192F;
-      --teal: #00A896;
-      --gold: #F2A900;
-      --light-bg: #F8F9FA;
-      --text: #2B2D42;
-      --card-bg: #FFFFFF;
-      --border: #E2E8F0;
+    :root{
+      --bg:#f7f4ee;
+      --surface:#ffffff;
+      --ink:#1f2937;
+      --muted:#64748b;
+      --navy:#17324d;
+      --teal:#2f6f6d;
+      --gold:#d7a34a;
+      --line:#e7e2d9;
+      --shadow:0 18px 45px rgba(31,41,55,.08);
+      --radius:22px;
     }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
     }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background-color: var(--light-bg);
-      line-height: 1.6;
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1120px, calc(100% - 40px));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter:blur(14px);
+      background:rgba(247,244,238,.88);
+      border-bottom:1px solid rgba(231,226,217,.85)
     }
-
-    /* Top Navigation Bar */
-    header {
-      background-color: var(--navy);
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .nav-inner{
+      min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .brand{font-weight:800;letter-spacing:-.03em;color:var(--navy);font-size:1.1rem}
+    .brand span{color:var(--teal)}
+    .nav-links{display:flex;gap:22px;align-items:center;font-size:.95rem;font-weight:650}
+    .nav-links a:hover{color:var(--teal)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 18px;border-radius:999px;font-weight:750;
+      border:1px solid transparent;transition:.2s ease
     }
-
-    .brand-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #FFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: var(--navy);
-      border: 2px solid var(--gold);
-      font-size: 0.85rem;
+    .btn-primary{background:var(--navy);color:#fff}
+    .btn-primary:hover{transform:translateY(-1px);background:#0f273d}
+    .btn-secondary{border-color:var(--line);background:#fff}
+    .btn-secondary:hover{border-color:#c9c0b3}
+    .hero{padding:76px 0 46px}
+    .hero-grid{
+      display:grid;grid-template-columns:1.25fr .75fr;gap:54px;align-items:center
     }
-
-    .brand-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+    .eyebrow{
+      display:inline-flex;gap:8px;align-items:center;
+      font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--teal);background:#e9f2f0;padding:7px 11px;border-radius:999px
     }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
+    h1{
+      margin:18px 0 18px;font-size:clamp(2.7rem,7vw,5.7rem);
+      line-height:.97;letter-spacing:-.065em;color:var(--navy)
     }
-
-    nav a {
-      color: #E2E8F0;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
+    .hero p{font-size:1.17rem;color:#485569;max-width:720px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .portrait-card{
+      background:var(--surface);border-radius:30px;padding:12px;
+      box-shadow:var(--shadow);transform:rotate(1deg)
     }
-
-    nav a:hover {
-      color: var(--gold);
+    .portrait-card img{border-radius:22px;aspect-ratio:4/5;object-fit:cover}
+    .portrait-note{
+      display:flex;justify-content:space-between;gap:16px;padding:14px 8px 4px;
+      color:var(--muted);font-size:.9rem
     }
-
-    .nav-btn {
-      background-color: var(--teal);
-      color: white !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 600;
+    .section{padding:58px 0}
+    .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:26px}
+    .section-head h2{
+      margin:0;color:var(--navy);font-size:clamp(2rem,4vw,3rem);letter-spacing:-.04em
     }
-
-    .nav-btn:hover {
-      background-color: #00897b;
+    .section-head p{max-width:620px;color:var(--muted);margin:0}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{
+      background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+      padding:24px;box-shadow:0 8px 28px rgba(31,41,55,.035)
     }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #1E3A8A 100%);
-      color: white;
-      text-align: center;
-      padding: 5rem 1.5rem 4rem;
+    .card .icon{font-size:1.65rem}
+    .card h3{margin:14px 0 8px;color:var(--navy)}
+    .card p{margin:0;color:var(--muted)}
+    .feature{
+      display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch
     }
-
-    .hero h1 {
-      font-size: 2.75rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      line-height: 1.2;
+    .feature .panel{
+      border-radius:28px;padding:34px;background:var(--navy);color:#fff
     }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 680px;
-      margin: 0 auto 2rem;
-      color: #CBD5E1;
+    .feature .panel.light{background:#edf4f2;color:var(--ink)}
+    .feature h3{font-size:1.8rem;margin:0 0 12px;letter-spacing:-.03em}
+    .feature p{opacity:.9}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+    .tag{
+      padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:.82rem;font-weight:700
     }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
+    .light .tag{background:#dceae7;color:#315e5c}
+    .community{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:24px;
+      background:linear-gradient(135deg,#17324d 0%,#244d63 100%);
+      color:#fff;border-radius:32px;padding:38px
     }
-
-    .btn-primary {
-      background-color: var(--gold);
-      color: var(--navy);
-      padding: 0.85rem 1.75rem;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.15s ease;
+    .community h2{font-size:clamp(2.1rem,4vw,3.4rem);line-height:1.05;margin:0 0 14px;letter-spacing:-.05em}
+    .community p{color:#d9e4ea}
+    .community-side{
+      background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);
+      border-radius:22px;padding:22px
     }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
+    .community-side ul{margin:0;padding-left:20px;color:#e8eff3}
+    .footer{padding:38px 0 54px;color:var(--muted);font-size:.9rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:24px;border-top:1px solid var(--line);padding-top:24px}
+    @media (max-width:900px){
+      .nav-links a:not(.btn){display:none}
+      .hero-grid,.feature,.community{grid-template-columns:1fr}
+      .hero{padding-top:48px}
+      .portrait-card{max-width:560px}
+      .grid-4{grid-template-columns:1fr 1fr}
     }
-
-    .btn-secondary {
-      border: 2px solid var(--teal);
-      color: white;
-      padding: 0.85rem 1.75rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .btn-secondary:hover {
-      background-color: rgba(0, 168, 150, 0.15);
-    }
-
-    /* Main Content Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      font-size: 2rem;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: #64748B;
-    }
-
-    /* Feature Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      border-top: 5px solid var(--teal);
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-
-    .card h3 {
-      font-size: 1.3rem;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-    }
-
-    .card p {
-      color: #475569;
-      font-size: 0.95rem;
-    }
-
-    /* Announcement Banner */
-    .announcement {
-      background-color: #EFF6FF;
-      border-left: 4px solid #3B82F6;
-      padding: 1.5rem;
-      border-radius: 6px;
-      margin-top: 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .announcement-text h4 {
-      color: #1E40AF;
-      margin-bottom: 0.25rem;
-    }
-
-    .announcement-text p {
-      color: #3B82F6;
-      font-size: 0.9rem;
-    }
-
-    /* Footer */
-    footer {
-      background-color: var(--navy);
-      color: #94A3B8;
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #1E293B;
-    }
-
-    footer strong {
-      color: white;
+    @media (max-width:580px){
+      .wrap{width:min(100% - 26px,1120px)}
+      .grid-4{grid-template-columns:1fr}
+      .section-head,.footer-inner{display:block}
+      .section-head p{margin-top:10px}
+      .community{padding:26px}
+      h1{font-size:3.2rem}
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="brand">
-      <div class="brand-logo">LMC</div>
-      <span class="brand-title">Library Media Community</span>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Library Media <span>Hub</span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#program">Program</a>
+        <a href="#community">Community</a>
+        <a class="btn btn-primary" href="https://discord.gg/ZZGnaVb3zE" target="_blank" rel="noopener">Join Discord</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#resources">Resources</a>
-      <a href="#research">Research</a>
-      <a href="#events">Events</a>
-      <a href="#join" class="nav-btn">Join Community</a>
-    </nav>
   </header>
 
-  <section class="hero">
-    <h1>Connecting Educators, Librarians & Researchers</h1>
-    <p>Bridging local gaps in media literacy, game-based learning, and edtech by sharing resources, evidence-based practices, and collaborative research across the Gulf Coast region.</p>
-    <div class="hero-actions">
-      <a href="#join" class="btn-primary">Become a Member</a>
-      <a href="#resources" class="btn-secondary">Browse Resources</a>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="section-title">
-      <h2>Community Initiatives</h2>
-      <p>Empowering local school media specialists and K-12 educators through collaborative growth.</p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <div class="card-icon">📚</div>
-        <h3>Resource Sharing</h3>
-        <p>Access curated media lesson plans, digital citizenship frameworks, AI evaluation guides, and open curriculum materials created by local specialists.</p>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Research · Teaching · Practice · Community</div>
+          <h1>Library Media Hub</h1>
+          <p>
+            A space connecting research, teaching, professional preparation, and community in school librarianship,
+            information literacy, emerging technology, and youth learning.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#community">Explore the Community</a>
+            <a class="btn btn-secondary" href="https://www.southalabama.edu/colleges/ceps/cins/edmedia-med.html" target="_blank" rel="noopener">Educational Media M.Ed.</a>
+          </div>
+        </div>
+        <div class="portrait-card">
+          <img src="johnny-cho-portrait.png" alt="Portrait of Dr. Johnny Cho" />
+          <div class="portrait-note">
+            <strong>Johnny Cho, Ph.D.</strong>
+            <span>Library Media</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="card-icon">🔬</div>
-        <h3>Collaborative Research</h3>
-        <p>Participate in action research initiatives, grants, and evidence-based projects evaluating youth information literacy and emerging media technologies.</p>
+    <section class="section" aria-labelledby="why">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">One connected ecosystem</div>
+            <h2 id="why">More than a program page.</h2>
+          </div>
+          <p>
+            The Hub brings together what often lives in separate places: faculty research, course learning,
+            student opportunities, program information, and professional community.
+          </p>
+        </div>
+        <div class="grid-4">
+          <article class="card">
+            <div class="icon">🔎</div>
+            <h3>Research</h3>
+            <p>Projects exploring information literacy, misinformation, AI, emerging technologies, youth, and learning.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📚</div>
+            <h3>Teaching</h3>
+            <p>Course resources, student work, practical tools, and learning activities for future library media specialists.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🎓</div>
+            <h3>Program</h3>
+            <p>A clear pathway to learn about Library Media preparation, coursework, professional growth, and opportunities.</p>
+          </article>
+          <article class="card">
+            <div class="icon">💬</div>
+            <h3>Community</h3>
+            <p>A welcoming space for students, alumni, educators, librarians, researchers, and future professionals.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="card-icon">🤝</div>
-        <h3>Local Network & Meetups</h3>
-        <p>Connect directly with peer media specialists, school librarians, and academic faculty through regular virtual roundtables and local workshops.</p>
+    <section class="section" id="research">
+      <div class="wrap feature">
+        <div class="panel">
+          <div class="eyebrow" style="background:rgba(255,255,255,.12);color:#fff">Research</div>
+          <h3>Research that connects people, technology, and learning.</h3>
+          <p>
+            Highlight current projects, publications, student research opportunities, presentations, and collaborations.
+            This section can grow into a more formal research-lab page later if you decide to establish a named lab.
+          </p>
+          <div class="tags">
+            <span class="tag">Information Literacy</span>
+            <span class="tag">Misinformation</span>
+            <span class="tag">AI & Libraries</span>
+            <span class="tag">Game-Based Learning</span>
+          </div>
+        </div>
+        <div class="panel light" id="teaching">
+          <div class="eyebrow">Teaching</div>
+          <h3>From coursework to professional practice.</h3>
+          <p>
+            Use this space for course highlights, recommended tools, exemplary student work, field-based learning,
+            and teaching resources that remain useful after the semester ends.
+          </p>
+          <div class="tags">
+            <span class="tag">Course Resources</span>
+            <span class="tag">Student Projects</span>
+            <span class="tag">Teaching Ideas</span>
+            <span class="tag">Professional Tools</span>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Program</div>
+            <h2>Prepare, connect, and grow.</h2>
+          </div>
+          <p>
+            Give prospective and current students a friendly entry point to the Educational Media M.Ed. and the broader
+            Library Media community.
+          </p>
+        </div>
+        <div class="feature">
+          <div class="card">
+            <h3>For prospective students</h3>
+            <p>
+              Introduce the program, explain what library media specialists do, feature career pathways,
+              and link directly to official admissions and program information.
+            </p>
+          </div>
+          <div class="card">
+            <h3>For current students & alumni</h3>
+            <p>
+              Share events, job opportunities, research participation, professional development, conferences,
+              and ways to stay connected after graduation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="wrap community">
+        <div>
+          <div class="eyebrow" style="background:rgba(255,255,255,.12);color:#fff">Library Media Community</div>
+          <h2>Keep the website public. Keep the conversation active.</h2>
+          <p>
+            The website works as the front door. Discord becomes the living community behind it—where people can ask
+            questions, share resources, find opportunities, and stay connected.
+          </p>
+          <a class="btn" style="background:#fff;color:#17324d;margin-top:12px" href="https://discord.gg/ZZGnaVb3zE" target="_blank" rel="noopener">Join the Discord Community</a>
+        </div>
+        <aside class="community-side">
+          <strong>Suggested Discord spaces</strong>
+          <ul>
+            <li>Announcements</li>
+            <li>Students & Alumni</li>
+            <li>Jobs & Internships</li>
+            <li>Research Opportunities</li>
+            <li>Teaching Resources</li>
+            <li>Conferences & Events</li>
+            <li>General Discussion</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>© 2026 Library Media Hub · Johnny Cho</div>
+      <div>Research · Teaching · Program · Community</div>
     </div>
-
-    <div class="announcement">
-      <div class="announcement-text">
-        <h4>Upcoming Network Session</h4>
-        <p>Join us for our inaugural virtual meetup on integrating AI literacy tools into media centers.</p>
-      </div>
-      <a href="#register" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">RSVP Now</a>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2026 <strong>Library Media Community (LMC)</strong>. Spearheaded in partnership with the University of South Alabama.</p>
   </footer>
-
 </body>
 </html>
